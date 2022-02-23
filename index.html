@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Q-Get | SiSalud</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- PRINCIPAL -->
+  <header id="header" class="header">
+    <img src="models/img/logo.png" alt="Q-Get" class="logo">
+    <button id="select-position" class="select-position header-btn" data-current="none">Elegir Puesto</button>
+    <button id="select-service" class="select-service header-btn" data-current="none">Elegir Servicio</button>
+    <button id="add-patient" class="add-patient header-btn">Nuevo paciente</button>
+
+    <div id="utility" class="utility">
+      <button id="key"><img src="models/img/key.png" alt="key"></button>
+      <button id="settings"><img src="models/img/settings.png" alt="settings"></button>
+      <button id="exit"><img src="models/img/exit.png" alt="exit"></button>
+    </div>
+  </header>
+
+  <!-- CONTAINER -->
+  <div id="container" class="container">
+    <!-- ACTIONS -->
+    <section id="actions" class="actions">
+      <aside id="current-patient" class="current-patient">
+        <span id="number-called">0</span>
+        <span id="name-called">Paciente</span>
+        <span id="secure-called">Seguro</span>
+      </aside>
+
+      <article id="position-info" class="position-info">
+        <img src="models/img/puesto.png" alt="puesto numero">
+        <span id="position-info-number">#</span>
+        <span id="position-info-service" data-selected="">Todos</span>
+      </article>
+
+      <article id="my-actions" class="my-actions">
+        <h2 id="username">UNDEFINED</h2>
+        <aside>
+          <button id="next" class="next"><img src="models/img/next.png" alt="">Siguiente</button>
+          <button id="recall" class="recall"><img src="models/img/recall.png" alt="">Rellamar</button>
+          <button id="absent" class="absent"><img src="models/img/ausent.png" alt="">Ausentar</button>
+          <button id="transfer" class="transfer"><img src="models/img/transfer.png" alt="">Transferir</button>
+          <button id="pause " class="pause"><img src="models/img/paused.png" alt="">Pausar</button>
+          <button id="backoffice" class="backoffice"><img src="models/img/backoffice.png" alt="">Backoffice</button>
+        </aside>
+      </article>
+    </section>
+
+    <!-- PATIENTS CATEGORYS -->
+    <section id="patients-categorys" class="patients-categorys">
+      <button id="list-pending">Pendientes</button>
+      <button id="list-paused">Pausados</button>
+      <button id="list-emergency">Emergencias</button>
+      <button id="list-catered">Atendidos</button>
+      <button id="my-patients-list">Mi lista</button>
+    </section>
+
+    <!-- PATIENTS CONTAINER -->
+    <section id="patients-container" class="patients-container">
+      <div class="patients-flow">
+        <h2 id="title" class="title">PENDIENTES</h2>
+        <button id="refresh" class="refresh">
+          <img src="models/img/refresh.png" alt="">
+          Refrescar
+        </button>
+
+        <ul class="services">
+          <li>Consulta</li>
+          <li>Laboratorio</li>
+          <li>Radiologia</li>
+          <li>Particular</li>
+          <li>Todos</li>
+        </ul>
+
+        <!-- CONSULTAS -->
+        <ul id="query" class="patients"></ul>
+        <!-- LABORATORIO -->
+        <ul id="laboratory" class="patients"></ul>
+        <!-- RADIOLOGIA -->
+        <ul id="radiology" class="patients"></ul>
+        <!-- PARTICULARES -->
+        <ul id="particular" class="patients"></ul>
+        <!-- TODOS   -->
+        <ul id="all" class="patients"></ul>
+
+        <!-- ANIMACION DE CAMBIAR LISTA -->
+        <span id="change-list-anim" class="change-list-anim">
+          <div class="filter"></div>
+        </span>
+      </div>
+    </section>
+  </div>
+
+  <!-- PIE DE PAGINA -->
+  <footer class="footer">
+    <button id="contact" class="contact">
+      Contactanos
+    </button>
+    <button id="info" class="info">
+      Información
+    </button>
+    <button id="copyright" class="copyright">
+      Derechos Reservados
+    </button>
+    <small class="rights-reserved">
+      Todos los derechos reservados, Sistemas Itpoint, C.A.
+      <br>
+      Rework hecho por winyersonrh
+    </small>
+  </footer>
+
+  <!-- MODALES -->
+  <div id="modals-container">
+    <!-- LLAMAR PACIENTE -->
+    <button id="call-patient" class="call-patient">Llamar</button>
+
+    <!-- MENSAJE -->
+    <div id="alert-position" class="alert-position">
+      <div id="alert-position-content" class="alert-position-content">
+        <span>¡Selecciona un puesto para llamar pacientes!</span>
+        <button id="alert-select-position" class="alert-select-position">Seleccionar puesto</button>
+      </div>
+    </div>
+
+    <!-- BACKOFFICE -->
+    <div id="backoffice-modal" class="backoffice-modal modal-fixed">
+      <h3 id="note" class="note">Ya vuelvo fui a comer algo</h3>
+      <span id="user" class="user">USUARIO</span>
+      <span class="record">
+        Pacientes atendidos
+        <span id="user-record">0</span>
+      </span>
+      <span class="time-working">
+        Tiempo de trabajo
+        <span id="current-time">00:00:00</span>
+      </span>
+      <button id="continue" class="continue">Continuar</button>
+      <img src="models/img/backoffice2.gif" alt="">
+    </div>
+
+    <!-- INICIAR SESION -->
+    <div id="login-form-container" class="login-form-container">
+      <form action="#" id="login-form" class="login-form">
+        <h2>Ingrese su usuario</h2>
+        <input type="text" id="insert-username" autofocus autocomplete="off" placeholder="Insert username">
+        <input type="submit" value="Entrar" id="confirm">
+        <div class="sisa"></div>
+      </form>
+    </div>
+
+    <!-- PUESTO DE TRABAJO -->
+    <div id="positions" class="positions modal-fixed">
+      <button class="position" data-number="1" data-state="available" data-user="">
+        <span class="position-number">Puesto 1</span>
+        <span class="position-state">Disponible</span>
+        <img src="models/img/available.png" class="show" alt="">
+        <img src="models/img/unavailable.png" class="" alt="">
+      </button>
+      <button class="position" data-number="2" data-state="available" data-user="">
+        <span class="position-number">Puesto 2</span>
+        <span class="position-state">Disponible</span>
+        <img src="models/img/available.png" class="show" alt="">
+        <img src="models/img/unavailable.png" class="" alt="">
+      </button>
+      <button class="position" data-number="3" data-state="available" data-user="">
+        <span class="position-number">Puesto 3</span>
+        <span class="position-state">Disponible</span>
+        <img src="models/img/available.png" class="show" alt="">
+        <img src="models/img/unavailable.png" class="" alt="">
+      </button>
+      <button class="position" data-number="4" data-state="available" data-user="">
+        <span class="position-number">Puesto 4</span>
+        <span class="position-state">Disponible</span>
+        <img src="models/img/available.png" class="show" alt="">
+        <img src="models/img/unavailable.png" class="" alt="">
+      </button>
+      <button class="position" data-number="5" data-state="available" data-user="">
+        <span class="position-number">Puesto 5</span>
+        <span class="position-state">Disponible</span>
+        <img src="models/img/available.png" class="show" alt="">
+        <img src="models/img/unavailable.png" class="" alt="">
+      </button>
+      <button class="position" data-number="6" data-state="available" data-user="">
+        <span class="position-number">Puesto 6</span>
+        <span class="position-state">Disponible</span>
+        <img src="models/img/available.png" class="show" alt="">
+        <img src="models/img/unavailable.png" class="" alt="">
+      </button>
+      <button class="position" data-number="7" data-state="available" data-user="">
+        <span class="position-number">Puesto 7</span>
+        <span class="position-state">Disponible</span>
+        <img src="models/img/available.png" class="show" alt="">
+        <img src="models/img/unavailable.png" class="" alt="">
+      </button>
+      <button class="position" data-number="8" data-state="available" data-user="">
+        <span class="position-number">Puesto 8</span>
+        <span class="position-state">Disponible</span>
+        <img src="models/img/available.png" class="show" alt="">
+        <img src="models/img/unavailable.png" class="" alt="">
+      </button>
+      <button class="position" data-number="9" data-state="available" data-user="">
+        <span class="position-number">Puesto 9</span>
+        <span class="position-state">Disponible</span>
+        <img src="models/img/available.png" class="show" alt="">
+        <img src="models/img/unavailable.png" class="" alt="">
+      </button>
+      <button class="position" data-number="10" data-state="available" data-user="">
+        <span class="position-number">Puesto 10</span>
+        <span class="position-state">Disponible</span>
+        <img src="models/img/available.png" class="show" alt="">
+        <img src="models/img/unavailable.png" class="" alt="">
+      </button>
+      <button class="position" data-number="11" data-state="available" data-user="">
+        <span class="position-number">Puesto 11</span>
+        <span class="position-state">Disponible</span>
+        <img src="models/img/available.png" class="show" alt="">
+        <img src="models/img/unavailable.png" class="" alt="">
+      </button>
+      <button class="position" data-number="12" data-state="available" data-user="">
+        <span class="position-number">Puesto 12</span>
+        <span class="position-state">Disponible</span>
+        <img src="models/img/available.png" class="show" alt="">
+        <img src="models/img/unavailable.png" class="" alt="">
+      </button>
+    </div>
+
+    <!-- SERVICIO A ATENDER -->
+    <div id="services" class="services-modal modal-fixed">
+      <div class="two-services">
+        <button id="query-btn" data-service="Consulta">
+          <img src="models/img/doctor.png" alt="Medicina">
+          <span>Consulta</span>
+        </button>
+        <button id="laboratory-btn" data-service="Laboratorio">
+          <img src="models/img/laboratory.png" alt="Medicina">
+          <span>Laboratorio</span>
+        </button>
+      </div>
+      <div class="three-services">
+        <button id="radiology-btn" data-service="Radiologia">
+          <img src="models/img/rx.png" alt="Medicina">
+          <span>Radiologia</span>
+        </button>
+        <button id="particular-btn" data-service="Particular">
+          <img src="models/img/particular.png" alt="Medicina">
+          <span>Particulares</span>
+        </button>
+        <button id="all-btn" data-service="Todos">
+          <img src="models/img/all.png" alt="Medicina">
+          <span>Todos</span>
+        </button>
+      </div>
+    </div>
+
+
+    <!-- AÑADIR PACIENTE -->
+    <div id="add-patient-modal" class="add-patient-modal">
+      <form action="#" id="add-patient-form">
+        <h3>Añadir paciente</h3>
+        <label for="patient-name" class="patient-name">Nombre del paciente</label>
+        <input type="text" id="patient-name" placeholder="Patient name" autocomplete="off">
+
+        <input type="checkbox" id="patient-emergency" hidden>
+        <label for="patient-emergency" class="emergency">
+          <img src="models/img/no-emergency.png" alt="emergency" class="no-emergency">
+          <img src="models/img/yes-emergency.png" alt="emergency" class="yes-emergency">
+        </label>
+
+        <label>Paciente asegurado</label>
+        <div class="checkbox">
+          <label for="insured-patient-yes" id="label-yes">Si</label>
+          <input type="checkbox" id="insured-patient-yes" hidden>
+          <label for="insured-patient-no" id="label-no">No</label>
+          <input type="checkbox" id="insured-patient-no" hidden>
+        </div>
+
+        <div>
+          <select id="patient-insurance" hidden>
+            <option value="">Seguro</option>
+            <option value="Seguros Mercantil">Mercantil</option>
+            <option value="Seguros Banesco">Banesco</option>
+            <option value="Seguros Venezuela">Venezuela</option>
+            <option value="Seguros Mapfre">Mapfre</option>
+            <option value="Seguros Makler">Makler</option>
+            <option value="Seguros Parsalud">Parsalud</option>
+            <option value="Seguros Qualitas">Qualitas</option>
+            <option value="Real Seguros">Real Seguros</option>
+          </select>
+        </div>
+
+        <div>
+          <select id="patient-service" required hidden>
+            <option value="">Tipo de servicio</option>
+            <option value="query">Consulta</option>
+            <option value="laboratory">Laboratorio</option>
+            <option value="radiology">Radiologia</option>
+          </select>
+        </div>
+
+        <input type="submit" id="add-patient-confirm" value="Listo">
+      </form>
+    </div>
+
+    <!-- CAMBIAR CONTRASEÑA -->
+    <div id="change-key" class="change-key modal-fixed">
+      <form action="#" id="change-password">
+        <span id="modal-quit" class="modal-quit">X</span>
+        <h3>Cambiar contraseña</h3>
+        <label for="current">Contraseña Actual</label>
+        <input type="password" id="current-password" placeholder="Current password" autocomplete="off">
+        <label for="new">Nueva Contraseña</label>
+        <input type="password" id="new-password" placeholder="New password" autocomplete="off">
+        <label for="confirm">Confirmar Contraseña</label>
+        <input type="password" id="confirm-password" placeholder="Confirm password" autocomplete="off">
+        <input type="submit" id="change-key-btn" value="Aceptar">
+      </form>
+    </div>
+
+
+    <!-- PANEL DE OPCIONES -->
+    <div id="panel-settings" class="panel-settings modal-fixed">
+      <div class="panel-settings-content">
+        <span id="modal-quit" class="modal-quit">X</span>
+        <h3>Panel de ajustes</h2>
+          <button id="change-theme">Tema</button>
+          <button id="change-username">Usuario</button>
+          <button id="sound">Sonido</button>
+      </div>
+    </div>
+
+    <!-- SALIR / DESPEDIDA -->
+    <div id="fired" class="fired modal-fixed">
+      <div class="fired-content">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M12,18c4,0,5-4,5-4H7C7,14,8,18,12,18z" />
+          <path
+            d="M12,2C6.486,2,2,6.486,2,12c0,5.514,4.486,10,10,10s10-4.486,10-10C22,6.486,17.514,2,12,2z M12,20c-4.411,0-8-3.589-8-8 s3.589-8,8-8s8,3.589,8,8S16.411,20,12,20z" />
+          <path
+            d="M13 12l2 .012C15.012 11.55 15.194 11 16 11s.988.55 1 1h2c0-1.206-.799-3-3-3S13 10.794 13 12zM8 11c.806 0 .988.55 1 1h2c0-1.206-.799-3-3-3s-3 1.794-3 3l2 .012C7.012 11.55 7.194 11 8 11z" />
+        </svg>
+        <h3>¡Hasta pronto!</h3>
+
+      </div>
+    </div>
+
+
+    <!-- PIE DE PAGINA - CONTACTO - AYUDA - INFORMACION -->
+    <div id="contact-modal" class="contact-modal modal-fixed">
+      <div class="contact-content">
+        <span id="modal-quit" class="modal-quit">X</span>
+        <h3>Contacto</h3>
+        <!-- TELEFONO -->
+        <a href="tel:++582122801700">
+          <img src="models/img/telf.png" alt="">
+          0212.280.17.00
+        </a>
+        <!-- CORREO -->
+        <a href="email:informacion@sisalud.net">
+          <img src="models/img/email.png" alt="">
+          informacion@sisalud.net
+        </a>
+        <!-- REDES -->
+        <div class="social">
+          <a href="https://sisalud.net/" target="_blank">
+            <img src="models/img/site-web.png" alt="">
+            Pagina Web
+          </a>
+          <a href="https://www.instagram.com/sisaludclinica/" target="_blank">
+            <img src="models/img/instagram.png" alt="">
+            Instagram
+          </a>
+          <a href="https://www.facebook.com/Clinica-Sisalud-411718658863686/" target="_blank">
+            <img src="models/img/facebook.png" alt="">
+            Facebook
+          </a>
+        </div>
+        <small class="contact-address">Av. Principal de Los Ruices. Edif. SiSalud
+          Caracas, Venezuela</small>
+      </div>
+    </div>
+    <div id="info-modal" class="info-modal modal-fixed">
+      <div class="info-content">
+        <span id="modal-quit" class="modal-quit">X</span>
+        <h3>Información</h3>
+        <h4>¿Quienes Somos?</h4>
+        <p>
+          Somos una empresa líder en prestación de servicio de Atención Primaria y Unidad Médico Quirúrgica, dotados con
+          tecnología de punta. Contamos con un selecto equipo de profesionales orientados a brindar un servicio rápido,
+          eficiente
+          y de primera calidad. Además, nuestra ubicación estratégica de fácil acceso y nuestra amplia sede con
+          ambientes
+          confortables y exclusivos, nos convierten en la mejor opción para cuidar de su salud y la de los suyos.
+        </p>
+        <hr>
+        <h4>¿Qué es el Q-Get?</h4>
+        <p>
+          El Software Q-Get es un sistema basado en tener un registro de datos en tiempo real de pacientes que acuden al
+          centro, ayuda a tener un mejor control y orden del flujo de personas para atenderlas con la mejor eficiencia
+          posible, cuenta con diferentes tipos de listas de pacientes dependiendo de la prioridad y una
+          interfaz amable y simple de manejar con el fin de mejorar el rendimiento, el diseño y desarrollo original de
+          este
+          software fue hecho por Sistemas Itpoint C.A.
+        </p>
+      </div>
+    </div>
+    <div id="copyright-modal" class="copyright-modal modal-fixed">
+      <div class="copyright-content">
+        <span id="modal-quit" class="modal-quit">X</span>
+        <h3>Derechos Reservados</h3>
+        <p>
+          Sistemas Itpoint ® Q-Get Versión CopyRight © 2009-2013 Sistemas Itpoint, C.A. | 1 Licencia Q-Get
+          BranchOffice, 10 Q-Get
+          Caller, 1 Q-Get Ticket & 1 Q-Get MediaPlayer Licencia de Uso autorizada; Cualquier uso ilegal o copia de este
+          software
+          será sometido a las leyes que rigen esta materia
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATABASE DE PACIENTES -->
+  <template id="database">
+    <div id="pendings">
+      <button class="patient" data-patient="Carmelo Rivas" data-service="query" data-category="pendings" data-number="8"
+        data-secure="Seguros Mercantil"></button>
+      <button class="patient" data-patient="Luis Perez" data-service="query" data-category="pendings" data-number="9"
+        data-secure="Seguros Banesco"></button>
+      <button class="patient" data-patient="Jorge Ramirez" data-service="particular" data-category="pendings"
+        data-number="10" data-secure="Particular"></button>
+      <button class="patient" data-patient="Adriana Valero" data-service="radiology" data-category="pendings"
+        data-number="11" data-secure="Seguros Venezuela"></button>
+      <button class="patient" data-patient="Mario Tineo" data-service="query" data-category="pendings" data-number="12"
+        data-secure="Seguros Venezuela"></button>
+      <button class="patient" data-patient="Pedro Padron" data-service="laboratory" data-category="pendings"
+        data-number="13" data-secure="Seguros Banesco"></button>
+      <button class="patient" data-patient="Camila Sanchez" data-service="query" data-category="pendings"
+        data-number="14" data-secure="Seguros Mercantil"></button>
+      <button class="patient" data-patient="Sofia Fernandez" data-service="particular" data-category="pendings"
+        data-number="15" data-secure="Particular"></button>
+      <button class="patient" data-patient="Liliana Barlaam" data-service="radiology" data-category="pendings"
+        data-number="16" data-secure="Seguros Mercantil"></button>
+      <button class="patient" data-patient="Nairobis Corea" data-service="query" data-category="pendings"
+        data-number="17" data-secure="Seguros Banesco"></button>
+      <button class="patient" data-patient="Barazarte iris" data-service="query" data-category="pendings"
+        data-number="18" data-secure="Seguros Makler"></button>
+      <button class="patient" data-patient="Franyelis Bueno" data-service="laboratory" data-category="pendings"
+        data-number="19" data-secure="Seguros Banesco"></button>
+    </div>
+
+    <div id="paused">
+      <button class="patient" data-patient="Juan Gallardo" data-service="query" data-category="paused" data-number="20"
+        data-secure="Seguros Mercantil"></button>
+      <button class="patient" data-patient="Rosario Pineda" data-service="radiology" data-category="paused"
+        data-number="21" data-secure="Seguros Mapfre"></button>
+      <button class="patient" data-patient="Daniel Jimenez" data-service="query" data-category="paused" data-number="22"
+        data-secure="Seguros Mercantil"></button>
+      <button class="patient" data-patient="Jorge Brito" data-service="radiology" data-category="paused"
+        data-number="23" data-secure="Seguros Venezuela"></button>
+      <button class="patient" data-patient="Lorena Beltran" data-service="query" data-category="paused" data-number="24"
+        data-secure="Seguros Makler"></button>
+      <button class="patient" data-patient="Luz Mendez" data-service="laboratory" data-category="paused"
+        data-number="25" data-secure="Seguros Mapfre"></button>
+    </div>
+
+    <div id="emergency">
+      <button class="patient" data-patient="Pedro Suarez" data-service="query" data-category="emergency"
+        data-number="26" data-secure="Seguros Banesco"></button>
+      <button class="patient" data-patient="Maikoll Lume" data-service="radiology" data-category="emergency"
+        data-number="27" data-secure="Seguros Venezuela"></button>
+      <button class="patient" data-patient="John Farias" data-service="particular" data-category="emergency"
+        data-number="28" data-secure="Seguros Mercantil"></button>
+      <button class="patient" data-patient="Ana Peralta" data-service="laboratory" data-category="emergency"
+        data-number="29" data-secure="Seguros Estar Seguros"></button>
+      <button class="patient" data-patient="Jose Tarantino" data-service="query" data-category="emergency"
+        data-number="30" data-secure="Seguros Parsalud"></button>
+      <button class="patient" data-patient="Jaime Bracamonte" data-service="radiology" data-category="emergency"
+        data-number="31" data-secure="Seguros Mapfre"></button>
+      <button class="patient" data-patient="Johnny Perez" data-service="laboratory" data-category="emergency"
+        data-number="32" data-secure="Seguros Mercantil"></button>
+      <button class="patient" data-patient="Tyrone Nuñez" data-service="query" data-category="emergency"
+        data-number="33" data-secure="Seguros Mapfre"></button>
+      <button class="patient" data-patient="Lily Chacon" data-service="laboratory" data-category="emergency"
+        data-number="34" data-secure="Seguros Mercantil"></button>
+      <button class="patient" data-patient="Pablo Hernandez" data-service="radiology" data-category="emergency"
+        data-number="35" data-secure="Seguros Banesco"></button>
+    </div>
+
+    <div id="catered">
+      <button class="patient" data-patient="Robert Hidalgo" data-service="query" data-category="catered" data-number="1"
+        data-secure="Seguros Mercantil"></button>
+      <button class="patient" data-patient="Mauricio Gonzalez" data-service="radiology" data-category="catered"
+        data-number="2" data-secure="Seguros "></button>
+      <button class="patient" data-patient="Camila Ordoñez" data-service="particular" data-category="catered"
+        data-number="3" data-secure="Particular"></button>
+      <button class="patient" data-patient="Katherine Peña" data-service="laboratory" data-category="catered"
+        data-number="4" data-secure="Seguros Venezuela"></button>
+      <button class="patient" data-patient="Brian Moran" data-service="query" data-category="catered" data-number="5"
+        data-secure="Seguros Mercantil"></button>
+      <button class="patient" data-patient="Luz Mijares" data-service="laboratory" data-category="catered"
+        data-number="6" data-secure="Seguros Mercantil"></button>
+      <button class="patient" data-patient="Alex Toronto" data-service="query" data-category="catered" data-number="7"
+        data-secure="Seguros Estar seguros"></button>
+    </div>
+
+    <div id="my-list">
+      <!-- INSERTADOS UNICAMENTE CON BASE DE DATOS EN ESTE CASO (localStorage) -->
+    </div>
+  </template>
+
+  <script src="controllers/all_scripts.js" type="module"></script>
+</body>
+
+</html>

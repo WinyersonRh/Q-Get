@@ -1,0 +1,65 @@
+/* ---------POSITIONS */
+.positions {
+  display: none;
+  align-items: center;
+  pointer-events: none;
+  justify-content: center;
+  grid-template-columns: repeat(4, 20%);
+}
+.positions.show {
+  display: grid;
+  pointer-events: all;
+}
+
+.position {
+  position: relative;
+  width: 16rem;
+  height: 10rem;
+  color: #ccc;
+  font-size: 1.6rem;
+  border: 4px ridge #32ba7c;
+  text-shadow: 2px 2px 2px #000;
+  background: #141414;
+  box-shadow: 4px 4px 4px #000;
+  transition: all 300ms ease;
+}
+.position.unavailable {
+  border-color: #ff5a73;
+}
+.position:hover {
+  background: #222222;
+}
+
+.position span {
+  display: block;
+  pointer-events: none;
+}
+
+.position span:nth-child(1) {
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+  font-size: 1.5rem;
+  transform: translateX(-50%);
+}
+
+.position span:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  bottom: 0.5rem;
+  font-size: 1.2rem;
+  transform: translateX(-50%);
+}
+
+.position img {
+  opacity: 0;
+  top: 0.5rem;
+  width: 40px;
+  height: 40px;
+  right: 0.5rem;
+  position: absolute;
+}
+.position img.show {
+  opacity: 1;
+}
+/* ---------POSITIONS */

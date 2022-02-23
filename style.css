@@ -1,0 +1,14 @@
+/* PREDETERMINADO */
+@import url(models/styles/default.css);
+
+/* CABECERA */
+@import url(models/styles/header.css);
+
+/* CONTENIDO */
+@import url(models/styles/container.css);
+
+/* MODALES */
+@import url(models/styles/modals.css);
+
+/* PIE DE PAGINA */
+@import url(models/styles/footer.css);

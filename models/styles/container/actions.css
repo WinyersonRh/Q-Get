@@ -1,0 +1,194 @@
+/* ---------ACTIONS */
+.actions {
+  width: 95%;
+  height: max-content;
+  max-height: 300px;
+  padding: 1rem 2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 4px;
+  border: 2px solid #000;
+  background: #292929;
+}
+
+.actions .current-patient {
+  position: relative;
+  width: 20%;
+  padding: 1rem 0 3rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 4px;
+  border: 2px solid #000;
+  color: #ccc;
+  font-weight: lighter;
+  text-shadow: 2px 2px 2px #000;
+  cursor: default;
+  background: #141414;
+}
+.actions .current-patient span:first-child {
+  font-size: 4rem;
+}
+.actions .current-patient span:nth-child(2) {
+  padding: 0.5rem 0;
+  font-size: 1.2rem;
+}
+.actions .current-patient span:last-child {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0.5rem 0;
+  font-size: 1.4rem;
+  text-align: center;
+}
+.actions .position-info {
+  position: relative;
+  width: 20%;
+  height: 12rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  cursor: default;
+  border: 2px solid #000;
+  border-radius: 4px;
+  pointer-events: none;
+  background: #141414;
+  transition: 450ms ease all;
+}
+
+.actions .position-info.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.actions .position-info img {
+  width: 100px;
+  height: 100px;
+}
+
+.actions .position-info span {
+  padding: 0.5rem 0 0;
+  color: #ccc;
+  text-align: center;
+  text-shadow: 3px 3px 2px #000;
+}
+.actions .position-info span:nth-child(2) {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 3rem;
+  background: transparent;
+}
+.actions .position-info span:nth-child(3) {
+  width: 100%;
+  font-size: 1.6rem;
+}
+
+.actions .my-actions {
+  position: relative;
+  width: 50%;
+  padding: 1rem;
+  padding-top: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* border-radius: 4px;
+  border: 2px solid #000;
+  background: #141414; */
+}
+
+.actions .my-actions h2 {
+  max-width: 14rem;
+  margin: 1rem auto 2rem;
+  padding: 1rem;
+  overflow: hidden;
+  color: #ccc;
+  font-size: 1.4rem;
+  font-weight: lighter;
+  text-shadow: 2px 2px 2px #000;
+  border: thin solid #141414;
+  box-shadow: 2px 2px 4px #000;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background: linear-gradient(to right bottom, var(--third-color), var(--second-color));
+  cursor: default;
+}
+
+.actions .my-actions aside {
+  width: 100%;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actions .my-actions aside button {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 8rem;
+  height: 4rem;
+  margin-right: 1rem;
+  border-radius: 2px;
+  border: thin solid #000;
+  color: #ccc;
+  font-size: 1rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 2px #000;
+  box-shadow: 3px 3px 4px #000;
+  font-family: "Lucida Sans", Geneva, Verdana, sans-serif;
+  background: #141414;
+  transition: all 200ms ease;
+}
+.actions .my-actions aside button:hover {
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 1px #000;
+}
+
+.actions .my-actions aside button img {
+  width: 35px;
+  height: 35px;
+  transition: all 200ms ease;
+  pointer-events: none;
+}
+
+.actions .my-actions aside button:hover img {
+  animation: icon-anim 400ms linear;
+}
+
+.actions .my-actions aside button:first-child {
+  width: 10rem;
+  padding: 2.5rem 0;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  margin-right: 0;
+  border-radius: 4px;
+  transition: all 400ms ease;
+}
+
+.actions .my-actions aside button:nth-child(5) {
+  margin-right: 0;
+}
+
+.actions .my-actions aside button:last-child {
+  width: 10rem;
+  padding: 2.5rem 0;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  margin-right: 0;
+}
+
+@keyframes icon-anim {
+  25% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}

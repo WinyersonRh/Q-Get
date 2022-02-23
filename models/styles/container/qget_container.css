@@ -1,0 +1,12 @@
+/* CONTAINER */
+.container {
+  display: none;
+  padding: 2rem 2rem;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container.show {
+  display: flex;
+}

@@ -1,0 +1,123 @@
+/* CABECERA */
+.header {
+  display: none;
+  width: 100%;
+  height: var(--header-height);
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 2px solid #000;
+  box-shadow: -1px 0 4px 1px #000;
+  background: linear-gradient(to right bottom, var(--third-color), var(--first-color));
+}
+
+.header.show {
+  display: flex;
+}
+
+.header .logo {
+  width: 80px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 0 4px 3px #000;
+  border-radius: 5rem;
+  background: #fff;
+}
+
+.header .header-btn {
+  position: relative;
+  width: 150px;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  text-shadow: 2px 2px 2px #000;
+  font-size: 1.2rem;
+  border-bottom: 2px solid transparent;
+  transition: all 200ms ease;
+}
+.header .header-btn:hover {
+  color: #fff;
+}
+.header .header-btn::after {
+  content: "";
+  width: 0rem;
+  position: absolute;
+  bottom: 0;
+  border: thin solid transparent;
+  transition: all 300ms ease;
+}
+.header .header-btn:hover::after {
+  width: 100%;
+  border-radius: 50%;
+  border: thin solid #ccc;
+}
+
+.header .utility {
+  display: flex;
+  align-items: center;
+  margin-right: 10vh;
+  margin-left: 40vh;
+}
+
+.header .utility button {
+  margin: 0 2rem;
+  padding: 0.5rem;
+  position: relative;
+  text-align: center;
+  border-radius: 50%;
+  transition: all 300ms ease;
+  background: rgba(0, 0, 0, 0.4);
+}
+.header .utility button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+.header .utility button::after {
+  opacity: 0;
+  z-index: 999;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  left: -1rem;
+  bottom: -3rem;
+  color: #ccc;
+  font-size: 16px;
+  text-shadow: 2px 2px #000;
+  border-radius: 4px;
+  border: 2px solid #141414;
+  box-shadow: 2px 2px 4px #000;
+  pointer-events: none;
+  transition: all 100ms ease;
+  background: #141414;
+}
+.header .utility button::before {
+  content: "";
+  z-index: 999;
+  position: absolute;
+  left: 1rem;
+  bottom: -1rem;
+  opacity: 0;
+  border: 10px solid;
+  pointer-events: none;
+  border-color: transparent transparent #141414 transparent;
+}
+.header .utility button:nth-child(1)::after {
+  content: "Contraseña";
+}
+.header .utility button:nth-child(2)::after {
+  content: "Ajustes";
+}
+.header .utility button:nth-child(3)::after {
+  content: "Salir";
+}
+.header .utility button:hover::before,
+.header .utility button:hover::after {
+  opacity: 1;
+}
+
+.header .utility button img {
+  width: 35px;
+  height: 35px;
+  pointer-events: none;
+}
+
+/* CABECERA */

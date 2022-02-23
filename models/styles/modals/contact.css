@@ -1,0 +1,61 @@
+.contact-modal {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.contact-modal.show {
+  display: flex;
+}
+
+.contact-modal h3 {
+  margin: 0 auto 0.5rem;
+  padding: 0 2rem 0.5rem;
+  color: #ccc;
+  border-radius: 2px;
+  text-shadow: 2px 2px #000;
+  border-bottom: thin solid #ccc;
+}
+
+.contact-modal .contact-content {
+  position: relative;
+  padding: 2rem;
+  display: grid;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  grid-template-columns: repeat(3, 1vr);
+  box-shadow: 0px 0px 4px 2px #000;
+  background-color: #141414;
+}
+
+.contact-modal .contact-content a {
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: rgb(25, 144, 255);
+  text-shadow: 2px 2px 2px #000;
+  transition: all 150ms ease;
+}
+.contact-modal .contact-content a:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.contact-modal .contact-content img {
+  width: 45px;
+  height: 45px;
+  transform: translateX(-0.5rem);
+}
+
+.contact-modal .social {
+  display: flex;
+  align-items: center;
+}
+
+.contact-modal .contact-address {
+  margin-top: 1rem;
+  text-align: center;
+  color: #999;
+  text-shadow: 2px 2px #000;
+}

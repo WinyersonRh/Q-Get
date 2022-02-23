@@ -1,0 +1,47 @@
+/* MENSAJE */
+.alert-position {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 300ms ease;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.alert-position.show {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.alert-position .alert-position-content {
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #ccc;
+  font-size: 1.6rem;
+  text-shadow: 2px 2px 2px #000;
+  background: #141414;
+}
+.alert-position button {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  color: #ccc;
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 2px #000;
+  border-radius: 5px;
+  border: 2px solid #000;
+  transition: all 300ms ease;
+  background-color: var(--third-color);
+}
+.alert-position button:hover {
+  background-color: var(--third-alpha-color);
+}
+/* ---------alert-position */

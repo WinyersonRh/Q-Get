@@ -1,0 +1,57 @@
+/* ---------SERVICES */
+.services-modal * {
+  transition: all 300ms ease;
+}
+
+.services-modal {
+  display: none;
+  pointer-events: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.services-modal.show {
+  display: flex;
+  pointer-events: all;
+}
+
+.services-modal .two-services,
+.services-modal .three-services {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.services-modal button {
+  margin: 1rem;
+  width: 20rem;
+  height: 12rem;
+  position: relative;
+  border: 4px ridge #ccc;
+  background: rgba(49, 49, 49);
+  box-shadow: 4px 4px 4px #000;
+}
+
+.services-modal button:hover {
+  border-color: var(--second-color);
+}
+
+.services-modal button img {
+  width: 6rem;
+  height: 6rem;
+  padding: 1rem;
+  pointer-events: none;
+}
+
+.services-modal button span {
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  color: #ccc;
+  font-size: 1.6rem;
+  pointer-events: none;
+  text-shadow: 2px 2px 4px #000;
+  transform: translateX(-50%);
+}
+/* ---------SERVICES */

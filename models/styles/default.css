@@ -1,0 +1,63 @@
+/* FORMAT */
+:root {
+  --header-height: 8vh;
+  --first-color: #002382;
+  --first-alpha-color: rgba(0, 35, 130, 0.75);
+  --second-color: #0392ce;
+  --second-alpha-color: rgba(3, 145, 206, 0.75);
+  --third-color: #3065b5;
+  --third-alpha-color: rgba(48, 101, 181, 0.75);
+  --gray-soft-color: rgb(58, 58, 58);
+  --gray-hard-color: rgb(22, 22, 22);
+  --alpha-color: rgba(0, 0, 0, 0.75);
+}
+
+button {
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  background: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: sans-serif;
+  background-repeat: no-repeat;
+  background: #0023827e;
+}
+
+input {
+  border: 0;
+  outline: none;
+}
+
+li {
+  list-style: none;
+}
+
+/* UTILITY */
+.modal-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.modal-quit {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: #ccc;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px #000;
+  cursor: pointer;
+}
+.modal-quit:hover {
+  color: #999;
+}
+.none {
+  display: none;
+}

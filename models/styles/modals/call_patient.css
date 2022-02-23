@@ -1,0 +1,39 @@
+/* ---------CALL PATIENT */
+.call-patient {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: unset;
+  left: unset;
+  opacity: 0;
+  pointer-events: none;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 2px solid #000;
+  color: #ccc;
+  font-size: 15px;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px #000;
+  box-shadow: 2px 2px 8px #000;
+  background-color: #222222;
+  transition: all 350ms ease;
+}
+.call-patient.show {
+  opacity: 1;
+  pointer-events: all;
+}
+.call-patient:hover {
+  color: #999;
+}
+.call-patient::before {
+  content: "";
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 12px solid;
+  border-color: transparent transparent #000 transparent;
+}
+
+/* ---------CALL PATIENT */

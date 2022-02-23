@@ -1,0 +1,28 @@
+/* MODALS */
+/* MODAL DE BACKOFFICE */
+@import url(modals/backoffice.css);
+/* MODAL FIJO DE INICIAR SESION */
+@import url(modals/login.css);
+/* MODAL DE POSICIONES */
+@import url(modals/positions.css);
+/* MODAL DE SERVICIOS */
+@import url(modals/service.css);
+/* MODAL DE AÑADIR PACIENTE */
+@import url(modals/add_patient.css);
+/* MODAL DE LLAMAR PACIENTE */
+@import url(modals/call_patient.css);
+/* MODAL DE MENSAJE */
+@import url(modals/message.css);
+/* MODAL DE CAMBIAR CONTRASEÑA */
+@import url(modals/change_key.css);
+/* MODAL DE AJUSTES */
+@import url(modals/panel_settings.css);
+/* MODAL DE AYUDA O INFORMACION */
+@import url(modals/help.css);
+/* MODAL DE SALIDA */
+@import url(modals/exit.css);
+/* MODALES DE PIE DE PAGINA */
+@import url(modals/contact.css);
+@import url(modals/info.css);
+@import url(modals/copyright.css);
+/* MODALS */

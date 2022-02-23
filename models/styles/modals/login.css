@@ -1,0 +1,97 @@
+/* INICIAR SESION */
+.login-form-container {
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  overflow: hidden;
+  pointer-events: all;
+  background: #1f253d;
+  transition: 500ms all ease;
+}
+
+.login-form-container.hide {
+  left: 100%;
+  pointer-events: none;
+}
+
+.login-form-container.hide .sisa {
+  left: 100%;
+  pointer-events: none;
+}
+
+.login-form {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
+  border: 2px solid #000;
+  box-shadow: 3px 3px 4px #000;
+  background: #1f253d;
+}
+
+.login-form h2 {
+  padding: 0.5rem 2rem;
+  margin: 0 auto 2rem;
+  position: relative;
+  border-radius: 4px;
+  color: #ccc;
+  font-size: 1.8rem;
+  font-weight: 500;
+  font-family: sans-serif;
+  text-shadow: 2px 2px 2px #000;
+  box-shadow: 0px 0px 4px 2px #000;
+  background: linear-gradient(to right bottom, var(--third-color), var(--first-color));
+}
+
+.login-form input#insert-username {
+  width: 10rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  border: thin solid #000;
+  color: #ccc;
+  font-size: 1rem;
+  text-shadow: 2px 2px 2px #000;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.login-form input#confirm {
+  width: 12rem;
+  padding: 1rem;
+  border: 0;
+  cursor: pointer;
+  color: #ccc;
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 2px #000;
+  box-shadow: 3px 3px 4px #000;
+  border-radius: 4px;
+  background: #394264;
+  transition: all 200ms ease;
+}
+.login-form input#confirm:hover {
+  box-shadow: 0px 0px 1px #000;
+}
+
+.login-form .sisa {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.1;
+  background: url(../../img/sisalud.jpg);
+  transition: 500ms all ease;
+}
+
+/* INICIAR SESION */
