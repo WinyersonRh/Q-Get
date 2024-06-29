@@ -5,17 +5,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Q-Get | SiSalud</title>
+  <title>Smart Get | SiSalud</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <!-- PRINCIPAL -->
   <header id="header" class="header">
-    <img src="models/img/logo.png" alt="Q-Get" class="logo">
-    <button id="select-position" class="select-position header-btn" data-current="none">Elegir Puesto</button>
-    <button id="select-service" class="select-service header-btn" data-current="none">Elegir Servicio</button>
-    <button id="add-patient" class="add-patient header-btn">Nuevo paciente</button>
+    <img src="models/img/logo.jpeg" alt="Smart Get" class="logo">
+
+    <div class="header-actions">
+      <button id="select-position" class="select-position header-btn" data-current="none">Elegir Puesto</button>
+      <button id="select-service" class="select-service header-btn" data-current="none">Elegir Servicio</button>
+      <button id="add-patient" class="add-patient header-btn">Nuevo paciente</button>
+      <button id="informative-screen-btn" class="informative-screen-btn header-btn">Pantalla informativa</button>
+    </div>
 
     <div id="utility" class="utility">
       <button id="key"><img src="models/img/key.png" alt="key"></button>
@@ -47,7 +51,7 @@
           <button id="recall" class="recall"><img src="models/img/recall.png" alt="">Rellamar</button>
           <button id="absent" class="absent"><img src="models/img/ausent.png" alt="">Ausentar</button>
           <button id="transfer" class="transfer"><img src="models/img/transfer.png" alt="">Transferir</button>
-          <button id="pause " class="pause"><img src="models/img/paused.png" alt="">Pausar</button>
+          <button id="pause" class="pause"><img src="models/img/paused.png" alt="">Pausar</button>
           <button id="backoffice" class="backoffice"><img src="models/img/backoffice.png" alt="">Backoffice</button>
         </aside>
       </article>
@@ -100,19 +104,17 @@
 
   <!-- PIE DE PAGINA -->
   <footer class="footer">
-    <button id="contact" class="contact">
-      Contactanos
-    </button>
-    <button id="info" class="info">
-      Información
-    </button>
-    <button id="copyright" class="copyright">
-      Derechos Reservados
-    </button>
+    <div>
+      <button id="contact" class="contact">
+        Contactanos
+      </button>
+      <button id="info" class="info">
+        Información
+      </button>
+    </div>
+
     <small class="rights-reserved">
-      Todos los derechos reservados, Sistemas Itpoint, C.A.
-      <br>
-      Rework hecho por winyersonrh
+      Sitio hecho por <a href="https://github.com/WinyersonRh">Winyerson RH</a>
     </small>
   </footer>
 
@@ -129,27 +131,11 @@
       </div>
     </div>
 
-    <!-- BACKOFFICE -->
-    <div id="backoffice-modal" class="backoffice-modal modal-fixed">
-      <h3 id="note" class="note">Ya vuelvo fui a comer algo</h3>
-      <span id="user" class="user">USUARIO</span>
-      <span class="record">
-        Pacientes atendidos
-        <span id="user-record">0</span>
-      </span>
-      <span class="time-working">
-        Tiempo de trabajo
-        <span id="current-time">00:00:00</span>
-      </span>
-      <button id="continue" class="continue">Continuar</button>
-      <img src="models/img/backoffice2.gif" alt="">
-    </div>
-
     <!-- INICIAR SESION -->
     <div id="login-form-container" class="login-form-container">
       <form action="#" id="login-form" class="login-form">
         <h2>Ingrese su usuario</h2>
-        <input type="text" id="insert-username" autofocus autocomplete="off" placeholder="Insert username">
+        <input type="text" id="insert-username" autocomplete="off" placeholder="Insert username">
         <input type="submit" value="Entrar" id="confirm">
         <div class="sisa"></div>
       </form>
@@ -259,11 +245,11 @@
       </div>
     </div>
 
-
     <!-- AÑADIR PACIENTE -->
     <div id="add-patient-modal" class="add-patient-modal">
+      <span id="quit-add-patient-modal" class="quit-add-patient-modal">Volver al inicio</span>
+      <h3>Añade un paciente</h3>
       <form action="#" id="add-patient-form">
-        <h3>Añadir paciente</h3>
         <label for="patient-name" class="patient-name">Nombre del paciente</label>
         <input type="text" id="patient-name" placeholder="Patient name" autocomplete="off">
 
@@ -304,8 +290,57 @@
           </select>
         </div>
 
-        <input type="submit" id="add-patient-confirm" value="Listo">
+        <input type="submit" id="add-patient-confirm" value="Aceptar" disabled>
       </form>
+    </div>
+
+    <!-- PANTALLA INFORMATIVA -->
+    <div id="informative-screen" class="informative-screen">
+      <!-- <img src="models/img/fondo.jpg" alt="hospital medicine infomedic"> -->
+      <div id="panel-left" class="panel-left">
+        <!-- <h3>Pacientes de llamado</h3> -->
+        <ul id="calling-positions">
+          <li data-number="1">Puesto 1 - Numero #</li>
+          <li data-number="2">Puesto 2 - Numero #</li>
+          <li data-number="3">Puesto 3 - Numero #</li>
+          <li data-number="4">Puesto 4 - Numero #</li>
+          <li data-number="5">Puesto 5 - Numero #</li>
+          <li data-number="6">Puesto 6 - Numero #</li>
+          <li data-number="7">Puesto 7 - Numero #</li>
+          <li data-number="8">Puesto 8 - Numero #</li>
+          <li data-number="9">Puesto 9 - Numero #</li>
+          <li data-number="10">Puesto 10 - Numero #</li>
+          <li data-number="11">Puesto 11 - Numero #</li>
+          <li data-number="12">Puesto 12 - Numero #</li>
+        </ul>
+      </div>
+
+      <div class="panel-right">
+        <article class="info-top">
+          <img src="models/img/sisalud.jpg" alt="sisalud-logo">
+          <span>
+            <img src="models/img/telf.png" alt="phone">
+            0212.280.17.00
+          </span>
+        </article>
+        <img id="informative-img" src="models/img/informative-1.PNG" alt="">
+        <article class="info-bot">
+          <img src="models/img/query-icon.jpg" alt="">
+          <img src="models/img/laboratory-icon.jpg" alt="">
+          <img src="models/img/imaging-icon.jpg" alt="">
+          <img src="models/img/emergency-icon.jpg" alt="">
+          <img src="models/img/surgeries-icon.jpg" alt="">
+          <img src="models/img/gastroenterology-icon.jpg" alt="">
+          <img src="models/img/cardiology-icon.jpg" alt="">
+          <img src="models/img/physiatry-icon.jpg" alt="">
+        </article>
+      </div>
+
+      <div id="called-patient-preview" class="called-patient-preview">
+        <span id="patient-number-preview">0</span>
+        <span id="patient-service-preview">Servicio</span>
+        <span id="patient-position-preview">Puesto</span>
+      </div>
     </div>
 
     <!-- CAMBIAR CONTRASEÑA -->
@@ -319,19 +354,18 @@
         <input type="password" id="new-password" placeholder="New password" autocomplete="off">
         <label for="confirm">Confirmar Contraseña</label>
         <input type="password" id="confirm-password" placeholder="Confirm password" autocomplete="off">
-        <input type="submit" id="change-key-btn" value="Aceptar">
+        <input type="submit" id="change-key-btn" value="Aceptar" disabled>
       </form>
     </div>
-
 
     <!-- PANEL DE OPCIONES -->
     <div id="panel-settings" class="panel-settings modal-fixed">
       <div class="panel-settings-content">
         <span id="modal-quit" class="modal-quit">X</span>
-        <h3>Panel de ajustes</h2>
-          <button id="change-theme">Tema</button>
-          <button id="change-username">Usuario</button>
-          <button id="sound">Sonido</button>
+        <h3>Panel de ajustes</h3>
+        <button id="change-theme">Tema</button>
+        <button id="change-username">Usuario</button>
+        <button id="sound">Sonido</button>
       </div>
     </div>
 
@@ -346,10 +380,73 @@
             d="M13 12l2 .012C15.012 11.55 15.194 11 16 11s.988.55 1 1h2c0-1.206-.799-3-3-3S13 10.794 13 12zM8 11c.806 0 .988.55 1 1h2c0-1.206-.799-3-3-3s-3 1.794-3 3l2 .012C7.012 11.55 7.194 11 8 11z" />
         </svg>
         <h3>¡Hasta pronto!</h3>
-
       </div>
     </div>
 
+    <!-- BACKOFFICE -->
+    <div id="form-backoffice-container" class="form-backoffice-container">
+      <span id="validate-password-message" class="validate-password-message">Por favor inserte su contraseña para
+        continuar</span>
+      <form id="form-backoffice" class="form-backoffice modal-fixed">
+        <span id="backoffice-back" class="backoffice-back"></span>
+        <label for="note-input" id="note-label">Deja una nota</label>
+        <input type="text" id="note-input" placeholder="Insert note" autocomplete="off">
+        <select id="select-gif">
+          <option value="">Elige una Animación</option>
+          <option value="models/img/backoffice-anim-1.gif">Animación 1</option>
+          <option value="models/img/backoffice-anim-2.gif">Animación 2</option>
+        </select>
+        <input type="password" id="password-input" class="password-input" hidden disabled>
+        <span id="password-incorrect" class="password-incorrect">Incorrecta</span>
+        <input type="submit" id="form-backoffice-btn" value="Continuar" disabled>
+        <input type="submit" id="form-backoffice-btn-continue" value="Continuar" disabled hidden>
+      </form>
+    </div>
+    <div id="backoffice-modal" class="backoffice-modal modal-fixed">
+      <h3 id="backoffice-note" class="backoffice-note">Ya vuelvo fui a comer algo</h3>
+      <span id="backoffice-user" class="backoffice-user">USUARIO</span>
+      <span class="backoffice-record">
+        Pacientes atendidos
+        <span id="backoffice-record">0</span>
+      </span>
+      <span class="time-working">
+        Tiempo de trabajo
+        <span id="current-time">00:00:00</span>
+      </span>
+      <button id="continue" class="continue">Continuar</button>
+      <img id="backoffice-animation" src="" alt="backoffice">
+    </div>
+
+    <!-- TRASFERIR -->
+    <div id="transfer-container" class="transfer-container modal-fixed">
+      <form id="transfer-form" class="transfer-form">
+        <h3>Transferir paciente</h3>
+        <div id="transfer-preview" class="transfer-preview">
+          <p>Numero: <span id="transfer-info-number"></span></p>
+          <p>Nombre: <span id="transfer-info-name"></span></p>
+          <p>Servicio: <span id="transfer-info-service"></span></p>
+          <p>Seguro: <span id="transfer-info-secure"></span></p>
+        </div>
+        <label for="transfer-note">Nota</label>
+        <textarea id="transfer-note" cols="20" rows="2"></textarea>
+        <select id="transfer-to-position">
+          <option value="">Selecciona un puesto</option>
+          <option value="1">Transferir a puesto 1</option>
+          <option value="2">Transferir a puesto 2</option>
+          <option value="3">Transferir a puesto 3</option>
+          <option value="4">Transferir a puesto 4</option>
+          <option value="5">Transferir a puesto 5</option>
+          <option value="6">Transferir a puesto 6</option>
+          <option value="7">Transferir a puesto 7</option>
+          <option value="8">Transferir a puesto 8</option>
+          <option value="9">Transferir a puesto 9</option>
+          <option value="10">Transferir a puesto 10</option>
+          <option value="11">Transferir a puesto 11</option>
+          <option value="12">Transferir a puesto 12</option>
+        </select>
+        <input id="transfer-submit" type="submit" value="Transferir paciente">
+      </form>
+    </div>
 
     <!-- PIE DE PAGINA - CONTACTO - AYUDA - INFORMACION -->
     <div id="contact-modal" class="contact-modal modal-fixed">
@@ -399,30 +496,17 @@
           confortables y exclusivos, nos convierten en la mejor opción para cuidar de su salud y la de los suyos.
         </p>
         <hr>
-        <h4>¿Qué es el Q-Get?</h4>
+        <h4>¿Qué es el Smart Get?</h4>
         <p>
-          El Software Q-Get es un sistema basado en tener un registro de datos en tiempo real de pacientes que acuden al
-          centro, ayuda a tener un mejor control y orden del flujo de personas para atenderlas con la mejor eficiencia
+          El Software Smart Get es un sistema basado en tener un registro de datos en tiempo real de pacientes que
+          acuden al centro, ayuda a tener un mejor control y orden del flujo de personas para atenderlas con la mejor
+          eficiencia
           posible, cuenta con diferentes tipos de listas de pacientes dependiendo de la prioridad y una
-          interfaz amable y simple de manejar con el fin de mejorar el rendimiento, el diseño y desarrollo original de
-          este
-          software fue hecho por Sistemas Itpoint C.A.
+          interfaz amable y simple de manejar con el fin de mejorar el rendimiento.
         </p>
       </div>
     </div>
-    <div id="copyright-modal" class="copyright-modal modal-fixed">
-      <div class="copyright-content">
-        <span id="modal-quit" class="modal-quit">X</span>
-        <h3>Derechos Reservados</h3>
-        <p>
-          Sistemas Itpoint ® Q-Get Versión CopyRight © 2009-2013 Sistemas Itpoint, C.A. | 1 Licencia Q-Get
-          BranchOffice, 10 Q-Get
-          Caller, 1 Q-Get Ticket & 1 Q-Get MediaPlayer Licencia de Uso autorizada; Cualquier uso ilegal o copia de este
-          software
-          será sometido a las leyes que rigen esta materia
-        </p>
-      </div>
-    </div>
+
   </div>
 
   <!-- DATABASE DE PACIENTES -->

@@ -61,6 +61,7 @@ export default class Start_QGET {
     this.listRadiology = LISTS.radiology;
     this.listParticular = LISTS.particular;
     this.patientsDB = DATABASE;
+    this.myStorage = W.localStorage;
 
     // NO RECARGAR PAGINA
     history.pushState(null, "", "?#");
@@ -99,7 +100,7 @@ export default class Start_QGET {
 
   // VACIAR LISTAS
   emptyLists() {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       const animChangeList = D.getElementById("change-list-anim");
       animChangeList.classList.add("show");
 
@@ -220,3 +221,27 @@ CATEGORYS.myListBtn.addEventListener("click", (e) => InstancePrincipal.patientsF
 // EVENTOS "SCROLL" DEL DOCUMENTO
 
 // EVENTOS AL CARGAR DOCUMENTO
+D.addEventListener("DOMContentLoaded", (e) => {
+  // FORMULARIOS DE BACKOFFICE
+  D.getElementById("note-input").value = "";
+  D.getElementById("select-gif").value = "";
+  D.getElementById("password-input").value = "";
+  D.getElementById("form-backoffice-btn").disabled = false;
+  // FORMULARIO DE CAMBIO DE CONTRASEÑA
+  D.getElementById("current-password").value = "";
+  D.getElementById("new-password").value = "";
+  D.getElementById("confirm-password").value = "";
+  D.getElementById("change-key-btn").disabled = false;
+  // FORMULARIO DE AÑADIR PACIENTES
+  D.getElementById("patient-name").value = "";
+  D.getElementById("patient-emergency").checked = false;
+  D.getElementById("insured-patient-yes").checked = false;
+  D.getElementById("insured-patient-no").checked = false;
+  D.getElementById("patient-insurance").value = "";
+  D.getElementById("patient-service").value = "";
+  D.getElementById("add-patient-confirm").disabled = false;
+  // FORMULARIO DE INICIAR SESION
+  D.getElementById("insert-username").disabled = false;
+  D.getElementById("confirm").disabled = false;
+  D.getElementById("insert-username").focus();
+});

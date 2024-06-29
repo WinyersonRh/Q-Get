@@ -111,6 +111,9 @@
   text-shadow: 2px 2px 4px #000;
   transition: all 150ms;
 }
+.patients-flow .patients button.absent {
+  background: linear-gradient(to right bottom, #8d000038, #8d000080);
+}
 .patients-flow .patients button:hover {
   text-shadow: none;
   transform: translateX(3rem);
@@ -162,6 +165,14 @@
 .patients-flow .patients button.particular:hover {
   color: #000;
   background: rgb(255, 185, 129);
+}
+
+.patients-flow .patients button.query.absent:hover,
+.patients-flow .patients button.laboratory.absent:hover,
+.patients-flow .patients button.radiology.absent:hover,
+.patients-flow .patients button.particular.absent:hover {
+  color: #ccc;
+  background: linear-gradient(to right bottom, #8d000038, #8d000080);
 }
 
 .patients-flow .patients button .patient-number {

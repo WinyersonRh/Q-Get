@@ -1,0 +1,161 @@
+.informative-screen {
+  width: 100%;
+  position: fixed;
+  top: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  pointer-events: none;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+  background: #525252 url(../../img/fondo.jpg) center/cover;
+  transition: all 450ms ease-in-out;
+}
+
+.informative-screen.show {
+  top: 0;
+  pointer-events: all;
+}
+
+.informative-screen .panel-left {
+  position: relative;
+  width: 35%;
+  height: 100%;
+  display: flex;
+  font-weight: lighter;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: thin solid #000;
+}
+
+.informative-screen .panel-left ul {
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  flex-direction: column;
+  grid-template-rows: repeat(12, 1fr);
+  background: linear-gradient(to bottom, var(--third-color), var(--first-color));
+  /* background: linear-gradient(to bottom, rgba(63, 210, 255, 0.7), var(--first-color)); */
+  background: var(--first-color);
+}
+.informative-screen .panel-left ul li {
+  width: 100%;
+  color: yellow;
+  margin: 0 auto;
+  padding: 0 2.4rem;
+  display: flex;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: center;
+  text-shadow: 2px 2px 2px #000;
+}
+.informative-screen .panel-left ul li::after {
+  content: "°";
+}
+/* .informative-screen .panel-left ul li:nth-child(2n) {
+  color: #ccc;
+  text-shadow: 2px 2px 4px #000;
+  background-color: var(--first-color);
+} */
+
+.informative-screen .panel-right {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.informative-screen .panel-right > img {
+  height: 70%;
+  z-index: -1;
+  width: inherit;
+  position: absolute;
+}
+
+.informative-screen .panel-right .info-top {
+  top: 0;
+  right: 0;
+  height: 15%;
+  z-index: -1;
+  width: inherit;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--first-color);
+}
+
+.informative-screen .panel-right .info-top > span {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  color: #fff;
+  font-size: 1.8rem;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 2px 2px 4px #000;
+}
+.informative-screen .panel-right .info-top > span img {
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+}
+
+.informative-screen .panel-right .info-bot {
+  right: 0;
+  bottom: 0;
+  width: inherit;
+  height: 15%;
+  z-index: -1;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #fff;
+}
+
+.informative-screen .called-patient-preview {
+  opacity: 0;
+  top: inherit;
+  left: 100%;
+  right: inherit;
+  bottom: inherit;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: center;
+  pointer-events: none;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 500ms ease;
+  background: var(--first-alpha-color);
+}
+.informative-screen .called-patient-preview.show {
+  left: 0;
+  opacity: 1;
+}
+
+.informative-screen .called-patient-preview span {
+  padding: 0 2rem;
+  color: yellow;
+  border-radius: 1rem;
+  text-shadow: 2px 2px 4px #000;
+}
+
+.informative-screen .called-patient-preview span:nth-child(1) {
+  font-size: 8rem;
+}
+.informative-screen .called-patient-preview span:nth-child(2) {
+  font-size: 4rem;
+  margin: 4rem auto;
+}
+.informative-screen .called-patient-preview span:nth-child(3) {
+  font-size: 8rem;
+}

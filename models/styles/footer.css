@@ -2,17 +2,23 @@
 .footer {
   bottom: 0;
   width: 100%;
-  padding: 4rem 0 2rem;
-  display: grid;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  grid-template-columns: repeat(3, 1vr);
+  padding: 4rem 0 2rem;
   border-top: 2px solid #000;
   box-shadow: 1px 0 4px 1px #000;
   color: #ccc;
   text-shadow: 2px 2px 2px #000;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background: #141414;
+}
+.footer > div {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .footer button {
@@ -53,12 +59,7 @@
   pointer-events: none;
   position: absolute;
 }
-.footer .rights-reserved {
-  grid-column: span 3;
-  margin: 0.5rem;
-  margin-top: 6rem;
-  font-size: 12px;
-  text-align: center;
-  letter-spacing: 2px;
+.footer a {
+  color: aqua;
 }
 /* PIE DE PAGINA */

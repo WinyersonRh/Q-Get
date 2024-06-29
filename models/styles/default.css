@@ -1,6 +1,6 @@
 /* FORMAT */
 :root {
-  --header-height: 8vh;
+  --header-height: 12vh;
   --first-color: #002382;
   --first-alpha-color: rgba(0, 35, 130, 0.75);
   --second-color: #0392ce;
@@ -45,6 +45,7 @@ li {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(71, 71, 71, 0.75);
 }
 .modal-quit {
   position: absolute;

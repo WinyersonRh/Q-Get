@@ -5,6 +5,7 @@
   pointer-events: none;
   justify-content: center;
   grid-template-columns: repeat(4, 20%);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 .positions.show {
   display: grid;

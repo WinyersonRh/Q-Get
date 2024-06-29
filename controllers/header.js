@@ -28,6 +28,15 @@ const ADD_PATIENT = {
   patientService: D.getElementById("patient-service"),
   submit: D.getElementById("add-patient-confirm"),
 };
+const INFORMATIVE_SCREEN = {
+  container: D.getElementById("informative-screen"),
+  panelLeft: D.getElementById("panel-left"),
+  panelRight: D.getElementById("panel-right"),
+  callingPositions: D.getElementById("calling-positions"),
+  infoTop: D.getElementById("info-top"),
+  infoBot: D.getElementById("info-bot"),
+  informativeImg: D.getElementById("informative-img"),
+};
 const CHANGE_KEY = {
   form: D.getElementById("change-password"),
   currentPassword: D.getElementById("current-password"),
@@ -241,6 +250,7 @@ export default class Header_Actions {
   // SALIR
   exit() {
     setTimeout(() => window.location.reload(), 500);
+    D.getElementById("insert-username").focus();
   }
 }
 
@@ -285,18 +295,3 @@ ADD_PATIENT.submit.addEventListener("click", (e) => {
 });
 
 FIRED.addEventListener("click", (e) => INSTANCE.exit());
-
-D.addEventListener("DOMContentLoaded", (e) => {
-  const labelYes = D.getElementById("label-yes");
-  const labelNo = D.getElementById("label-no");
-  labelYes.classList.remove("checked");
-  labelNo.classList.remove("checked");
-  ADD_PATIENT.patientName.value = "";
-  ADD_PATIENT.patientInsurance.value = "";
-  ADD_PATIENT.patientService.value = "";
-  ADD_PATIENT.emergency.checked = false;
-  ADD_PATIENT.insuredPatient.no.checked = false;
-  ADD_PATIENT.insuredPatient.yes.checked = false;
-  ADD_PATIENT.patientInsurance.hidden = true;
-  ADD_PATIENT.patientService.hidden = true;
-});

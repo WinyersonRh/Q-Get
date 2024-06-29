@@ -2,74 +2,118 @@
 .add-patient-modal {
   position: fixed;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
-  display: none;
+  left: 100%;
+  display: flex;
+  overflow: hidden;
   align-items: center;
+  pointer-events: none;
   justify-content: center;
   backdrop-filter: blur(2px);
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: #525252;
+  transition: all 450ms ease-in-out;
 }
 .add-patient-modal.show {
-  display: flex;
+  left: 0;
+  pointer-events: all;
+}
+.quit-add-patient-modal {
+  z-index: 999;
+  position: absolute;
+  top: 5px;
+  left: 4rem;
+  width: 200px;
+  color: #ccc;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  text-align: center;
+  background: #3c4c85;
+  box-sizing: border-box;
+  transition: all 260ms ease-out;
+  box-shadow: 2px 2px 4px #000;
+  text-shadow: 2px 2px 4px #000;
+}
+.quit-add-patient-modal:hover {
+  padding-left: 0;
+  background: #4f63ac;
+}
+.quit-add-patient-modal::after{
+  content: "";
+  left: -1rem;
+  position: absolute;
+  border: 1rem solid;
+  transition: all 150ms ease;
+  border-color: transparent transparent transparent transparent;
+}
+.quit-add-patient-modal:hover::after {
+  left: -2rem;
+  border-color: transparent #4f63ac transparent transparent;
+}
+
+.add-patient-modal h3 {
+  top: 0;
+  left: 50%;
+  margin: 0;
+  width: 100%;
+  color: #ccc;
+  padding: 1rem;
+  font-size: 1.6rem;
+  text-align: center;
+  position: absolute;
+  transform: translateX(-50%);
+  text-shadow: 2px 2px 4px #000;
+  box-shadow: 2px 2px 4px #000;
+  background-color: #2b2b2b;
 }
 .add-patient-modal form {
   position: relative;
-  width: 300px;
-  padding: 2rem;
+  margin-top: 4rem;
+  padding: 2rem 4rem;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
-  border-radius: 5px;
-  border: 2px solid #000;
-  background-color: #222222;
-  box-shadow: 2px 2px 4px #000;
-}
-.add-patient-modal form h3 {
-  width: 80%;
-  padding: 5px 0;
-  text-align: center;
-  position: absolute;
-  top: -2.5rem;
-  left: 50%;
-  color: #ccc;
-  border: 2px solid #000;
-  transform: translateX(-50%);
-  box-shadow: 2px 2px 4px #000;
-  text-shadow: 2px 2px 4px #000;
-  background-color: #222222;
+  justify-content: center;
 }
 .add-patient-modal form label {
   color: #ccc;
-  font-size: 1rem;
+  font-size: 1.4rem;
   font-weight: 500;
   text-shadow: 2px 2px 4px #000;
 }
 .add-patient-modal form input {
-  margin: 0.5rem auto;
-  padding: 5px 1rem;
+  width: 200px;
+  margin: 1rem auto;
+  padding: 1rem;
   color: #ccc;
-  font-size: 1rem;
+  font-size: 1.2rem;
   text-shadow: 2px 2px #000;
-  border-bottom: 2px solid #0392ce;
+  transition: all 250ms ease;
   background: rgba(0, 0, 0, 0.4);
+}
+.add-patient-modal form input:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+.add-patient-modal form input:focus {
+  background: rgba(0, 0, 0, 0.7);
+
 }
 .add-patient-modal form input::placeholder {
   color: #6d6d6d;
   text-shadow: none;
 }
 .add-patient-modal form .emergency {
+  top: 4rem;
+  right: 0;
+  width: 70px;
+  height: 70px;
   cursor: pointer;
   position: absolute;
-  top: 3.5rem;
-  right: 4rem;
 }
 .add-patient-modal form .emergency .no-emergency,
 .add-patient-modal form .emergency .yes-emergency {
-  width: 50px;
-  height: 50px;
   position: absolute;
   transition: all 150ms ease;
 }
@@ -94,43 +138,45 @@
   padding: 0.5rem 1rem;
   cursor: pointer;
   text-align: center;
-  border: 2px solid #000;
   border-radius: 4px;
-  background: #292929;
+  background: #353535;
+  border: 2px solid #000;
   transition: all 300ms ease;
 }
 .add-patient-modal form .checkbox label:hover {
-  background: #353535;
+  background: #292929;
 }
 .add-patient-modal form .checkbox label.checked {
   background: #141414;
-  box-shadow: 0px 0px 1px 2px #0392ce;
+  background: #3c4c85;
 }
 .add-patient-modal form select {
   width: 200px;
   margin: 0.5rem auto 1rem;
-  padding: 0.5rem 2rem;
+  padding: 1rem 2rem;
   border: 0;
   color: #ccc;
-  font-size: 1rem;
-  background: #181818;
+  font-size: 1.2rem;
   cursor: pointer;
+  background: #303030;
   transition: all 300ms ease;
 }
 .add-patient-modal form select:hover {
   background: #141414;
 }
 .add-patient-modal form input[type="submit"] {
-  width: 200px;
-  padding: 0.5rem;
+  width: 100%;
   border: 0;
-  border: 2px solid #000;
-  border-radius: 4px;
+  color: #ccc;
+  padding: 1rem;
   cursor: pointer;
-  background: #252525;
-  transition: all 300ms ease;
+  font-size: 1.2rem;
+  background: #3c4c85;
+  transition: all 150ms ease;
+  box-shadow: 2px 2px 4px #000;
+  text-shadow: 2px 2px 4px #000;
 }
 .add-patient-modal form input[type="submit"]:hover {
-  background: #111111;
+  background: #4f63ac;
 }
 /* ---------ADD PATIENT

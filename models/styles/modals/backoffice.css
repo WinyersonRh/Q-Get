@@ -1,4 +1,183 @@
 /* --------- BACKOFFICE */
+.form-backoffice-container {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  position: fixed;
+  display: flex;
+  pointer-events: none;
+  backdrop-filter: blur(2px);
+  transition: all ease 500ms;
+  background-color: rgba(71, 71, 71, 0.75);
+}
+.form-backoffice-container.show {
+  opacity: 1;
+  pointer-events: all;
+}
+.validate-password-message {
+  top: 50%;
+  left: 75%;
+  opacity: 0;
+  z-index: 999;
+  width: 200px;
+  color: #ccc;
+  font-size: 1.4rem;
+  position: absolute;
+  text-align: center;
+  border-radius: 5px;
+  pointer-events: none;
+  padding: 0.5rem 1rem;
+  box-shadow: 2px 2px 4px #000;
+  text-shadow: 2px 2px 4px #000;
+  transform: translate(-50%, -50%);
+  background: #394264;
+}
+.validate-password-message::before {
+  content: "";
+  left: -2rem;
+  border: 1rem solid;
+  position: absolute;
+  border-color: transparent #394264 transparent transparent;
+}
+.validate-password-message.show {
+  animation: show-message 500ms infinite alternate;
+}
+@keyframes show-message {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  from {
+    opacity: 1;
+    transform: translate(-55%, -50%);
+  }
+}
+.form-backoffice {
+  top: 50%;
+  left: 50%;
+  width: 350px;
+  height: 150px;
+  display: flex;
+  padding: 4rem 1rem;
+  position: absolute;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #2b2b2b;
+  box-shadow: 3px 3px 6px #000;
+  transform: translate(-50%, -50%);
+}
+.form-backoffice .backoffice-back {
+  opacity: 0;
+  left: 1rem;
+  top: 0.5rem;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  cursor: pointer;
+  pointer-events: none;
+}
+.form-backoffice .backoffice-back.show {
+  opacity: 1;
+  pointer-events: all;
+}
+.form-backoffice .backoffice-back:hover::before {
+  color: #999;
+}
+.form-backoffice .backoffice-back::before {
+  content: "Atras";
+  color: #ccc;
+  text-shadow: 2px 2px 4px #000;
+  font-size: 1.2rem;
+}
+.form-backoffice label {
+  color: #ccc;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px #000;
+  pointer-events: none;
+}
+
+.form-backoffice input:nth-child(3),
+.form-backoffice input:nth-child(5) {
+  color: #ccc;
+  font-size: 1rem;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  border: 2px solid #ccc;
+  text-shadow: 2px 2px #000;
+  background: rgb(36, 36, 36);
+}
+.form-backoffice select {
+  border: 0;
+  color: #ccc;
+  font-size: 1rem;
+  margin: 1rem auto;
+  border-radius: 2px;
+  padding: 0.5rem 1rem;
+  border: 2px solid #ccc;
+  background: rgb(36, 36, 36);
+}
+.form-backoffice select option {
+  border: 0;
+}
+.form-backoffice .password-input.incorrect {
+  border: 2px solid #ff5a5a;
+}
+.form-backoffice .password-incorrect {
+  top: 55%;
+  left: 50%;
+  opacity: 0;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #ff5a5a;
+  text-align: center;
+  border-radius: 4px;
+  position: absolute;
+  pointer-events: none;
+  background: #394264;
+  text-shadow: 2px 2px #000;
+  box-shadow: 2px 2px 4px #000;
+}
+.form-backoffice .password-incorrect::before {
+  content: "";
+  top: -50%;
+  position: absolute;
+  border: 10px solid;
+  border-color: transparent transparent #394264 transparent;
+}
+.form-backoffice .password-incorrect.show-message {
+  animation: incorrect 500ms infinite alternate;
+}
+@keyframes incorrect {
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  from {
+    opacity: 1;
+    transform: translateY(5px);
+  }
+}
+.form-backoffice input[type="submit"] {
+  width: 70%;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  background: #3c4c85;
+  transition: all 150ms ease;
+  box-shadow: 2px 2px 4px #000;
+  text-shadow: 2px 2px 4px #000;
+}
+.form-backoffice input[type="submit"]:hover {
+  background: #4f63ac;
+}
+.form-backoffice input#form-backoffice-btn-continue {
+  margin-top: 2rem;
+}
+
 .backoffice-modal {
   position: relative;
   position: fixed;
@@ -26,24 +205,24 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   pointer-events: none;
 }
-.backoffice-modal .note {
+.backoffice-modal .backoffice-note {
   top: 2rem;
   font-size: 3rem;
   font-family: fantasy;
   font-weight: lighter;
 }
-.backoffice-modal .note::after {
+.backoffice-modal .backoffice-note::after {
   content: "!";
 }
-.backoffice-modal .note::before {
+.backoffice-modal .backoffice-note::before {
   content: "¡";
 }
-.backoffice-modal .user {
+.backoffice-modal .backoffice-user {
   top: 2rem;
   right: 5rem;
   font-size: 2rem;
 }
-.backoffice-modal .record {
+.backoffice-modal .backoffice-record {
   top: 40%;
   right: 5%;
   font-size: 1.5rem;
@@ -52,7 +231,7 @@
   flex-direction: column;
   justify-content: center;
 }
-.backoffice-modal .record span {
+.backoffice-modal .backoffice-record span {
   font-size: 2rem;
   margin-top: 6rem;
 }
